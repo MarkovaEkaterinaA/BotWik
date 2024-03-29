@@ -8,7 +8,7 @@ from telebot import types
 logging.basicConfig(filename='bot.log', level=logging.ERROR)
 
 # Создаем экземпляр бота
-bot = telebot.TeleBot('6801584315:AAH3GOiv9e8tKZKZejrHQnsvBrEmzFq1w0Q')
+bot = telebot.TeleBot('token from @papaBot')
 
 # Устанавливаем русский язык в Wikipedia
 wikipedia.set_lang("ru")
