@@ -78,6 +78,19 @@ def list_message(message):
 # Обработчик текстовых сообщений
 @bot.message_handler(func=lambda message: True)
 def handle_text(message):
+    try:
+        # Получаем значение из Википедии для введенного слова
+        result = getwiki(message.text)
+        # Отправляем результат пользователю
+        bot.send_message(message.chat.id, result)
+    except Exception as e:
+        logging.error("Error in handle_text: %s", str(e))
+        bot.send_message(message.chat.id, "Возникла ошибка при обработке запроса.")
+
+
+# Обработчик текстовых сообщений
+@bot.message_handler(func=lambda message: True)
+def handle_text(message):
     if not message.text:
         bot.send_message(message.chat.id, "Вы отправили пустое сообщение. Введите слово для поиска.")
     else:
